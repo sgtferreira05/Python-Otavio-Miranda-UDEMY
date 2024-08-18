@@ -1,0 +1,24 @@
+{
+  "name": "Ailton",
+  "lastname": "F",
+  "address0": [
+    {
+      "street": "R1",
+      "number": 32
+    },
+    {
+      "street": "R2",
+      "number": 55
+    }
+  ],
+  "height": 1.8,
+  "preferences_numbers": [
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "dev": true,
+  "nothing": null
+}
