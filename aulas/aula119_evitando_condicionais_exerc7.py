@@ -1,12 +1,3 @@
-#  Exercício - Lista de tarefas com desfazer e refazer
-
-# todo = [] -> lista de tarefas
-# todo = ['fazer café'] -> adicionar fazer café
-# todo = ['fazer café', 'caminhar'] -> Adicionar caminhar
-# desfazer = ['fazer café'] -> Refazer ['caminhar']
-# desfazer = [] -> Refazer ['caminhar', 'fazer café']
-# refazer = todo ['fazer café']
-# refazer = todo['fazer café', 'caminhar']
 import os
 
 
@@ -33,6 +24,8 @@ def desfazer(tarefas, tarefas_refazer):
     tarefa = tarefas.pop()
     print(f'{tarefa=}  foi removida da lista de tarefas.')
     tarefas_refazer.append(tarefa)
+    listar(tarefas)
+
     print()
 
 
@@ -45,6 +38,7 @@ def refazer(tarefas, tarefas_refazer):
     
     tarefa = tarefas_refazer.pop()
     print(f'{tarefa=} adicionada na lista de tarefas.')
+    listar(tarefas)
     tarefas.append(tarefa)
     print()
 
@@ -59,6 +53,7 @@ def adicionar(tarefa, tarefas):
     
     tarefas.append(tarefa)
     print(f'{tarefa=} adicionada na lista de tarefas.')
+    listar(tarefas)
     print()
 
 
@@ -70,21 +65,36 @@ tarefas_refazer = []
 while True:
     print('comandos: listar, desfazer, refazer')
     tarefa = input('Digite uma tarefa ou comando: ')
-    if tarefa == "listar":
-        listar(tarefas)
-        continue
-    elif tarefa == "desfazer":
-        desfazer(tarefas, tarefas_refazer)
-        listar(tarefas)
+
+    comandos = {
+        'listar': lambda: listar(tarefas),
+        'desfazer': lambda: desfazer(tarefas, tarefas_refazer),
+        'refazer': lambda: refazer(tarefas, tarefas_refazer),
+        'clear': lambda: os.system('cls'),
+        'adicionar': lambda: adicionar(tarefa, tarefas),
+    }
+    comando = comandos.get(tarefa) if comandos.get(tarefa) is not None else comandos['adicionar']
+    comando()
+
+
+
+
+
+    # if tarefa == "listar":
+    #     listar(tarefas)
+    #     continue
+    # elif tarefa == "desfazer":
+    #     desfazer(tarefas, tarefas_refazer)
+    #     listar(tarefas)
         
-    elif tarefa == "refazer":
-        refazer(tarefas, tarefas_refazer)
-        listar(tarefas)
-        continue
+    # elif tarefa == "refazer":
+    #     refazer(tarefas, tarefas_refazer)
+    #     listar(tarefas)
+    #     continue
     
-    elif tarefa == "clear":
-        os.system('cls')
-    else:
-        adicionar(tarefa, tarefas)
-        listar(tarefas)
-        continue
+    # elif tarefa == "clear":
+    #     os.system('cls')
+    # else:
+    #     adicionar(tarefa, tarefas)
+    #     listar(tarefas)
+    #     continue
