@@ -36,12 +36,27 @@ class MyOpen():
         self._file = open(self.file_path, self.mode, encoding ='utf8')
         return self._file
     
-    def __exit__(self, classs_exception, exception_, traceback):
+    def __exit__(self, classs_exception, exception_, traceback_):
         print('Closing file')
         self._file.close()
 
+
+        # raise classs_exception('My message')
+        # raise classs_exception(*exception_.args).with_traceback(traceback_)
+
+
+        # print(classs_exception)
+        # print(exception_)
+        # print(traceback_)
+
+        exception_.add_note('My note')
+
+        # raise ConnectionError("Couldn't connect")
+
+        # return True     # Tratei a exceção
+
 with  MyOpen('aula149.txt', 'w') as file:
     file.write('Line 1 \n')
-    file.write('Line 2 \n')
+    file.write('Line 2 \n', 123)
     file.write('Line 3 \n')
     print('WITH', file)
