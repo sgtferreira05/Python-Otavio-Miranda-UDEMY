@@ -1,0 +1,6 @@
+"""
+Português: "O programa lê várias linhas de um arquivo."
+Inglês: "The program reads several lines from a file."
+Português: "O gráfico mostra várias linhas de tendência."
+Inglês: "The graph shows multiple trend lines."
+"""
