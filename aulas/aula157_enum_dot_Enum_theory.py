@@ -35,13 +35,15 @@ def move(direction: Directions): # to inform the type
     if not isinstance(direction, Directions):
         raise ValueError('Direction not founded')
     
-    print(f'Moving to {direction.name}, ({direction.value})')
+    print(f'Moving to {direction.name}, ( 
+    {direction.value})')
 
 move(Directions.LEFT)
 move(Directions.RIGHT)
 move(Directions.UP)
 move(Directions.DOWN)
 move(Directions.STRAIGHT)
+
 
 
 # move('left')
