@@ -6,7 +6,7 @@ Account (ABC)
     SavingAccount
     CheckingAccount
 
-Person (ABC)
+Person ()
     Customer
         Customer -> Account
 

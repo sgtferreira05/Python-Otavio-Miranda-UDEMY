@@ -19,6 +19,11 @@ class Account(abc.ABC):
         print(f'Balance: US${self.balance:.2f} {msg}')
         print('--')
 
+    def __repr__(self):
+        class_name = type(self).__name__
+        attrs = f'({self.branch!r}, {self.accoutNumber!r}, {self.balance!r})'
+        return f'{class_name}{attrs}'
+
 class SavingAccount(Account):
     def withdraw(self, amount):
         balance_after_withdraw = self.balance - amount
@@ -50,6 +55,11 @@ class CheckingAccount(Account):
         print(f'Your cap is: US${-self.limit:.2f}')
         self.details(f'\nDENIED WITHDRAW US${amount:.2f}')
         return self.balance
+
+    def __repr__(self):
+        class_name = type(self).__name__
+        attrs = f'({self.branch!r}, {self.accoutNumber!r}, {self.balance!r}, {self.limit!r})'
+        return f'{class_name}{attrs}'
 
 
 if __name__ == '__main__':
