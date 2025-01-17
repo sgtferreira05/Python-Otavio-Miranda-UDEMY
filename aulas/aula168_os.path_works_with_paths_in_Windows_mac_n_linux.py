@@ -10,3 +10,20 @@
 #3. os.path.exists: verify if a specific path exists.
 
 # os.path only works with file paths and does not perform any input/output(I/O) operations on the files themselves.
+
+# https://docs.python.org/3/library/os.path.html   doc
+
+import os
+
+path = os.path.join('/home/users', 'Desktop', 'curso', 'arquivo.txt')
+print(path)
+
+directory, file = os.path.split(path)
+file_name, file_extension = os.path.splitext(file)
+print(file_name, file_extension)
+
+print(os.path.exists('D:\\CURSOS\\python_udemy'))
+# print(os.path.abspath('.'))
+print(os.path.basename(path))
+print(os.path.basename(directory))
+print(os.path.dirname(path)) 
