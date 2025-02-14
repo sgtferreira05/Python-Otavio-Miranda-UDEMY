@@ -15,7 +15,7 @@
 
 import os
 
-path = os.path.join('/home/users', 'Desktop', 'curso', 'arquivo.txt')
+path = os.path.join('\\home\\users', 'Desktop', 'curso', 'arquivo.txt')
 print(path)
 
 directory, file = os.path.split(path)
@@ -25,5 +25,6 @@ print(file_name, file_extension)
 print(os.path.exists('D:\\CURSOS\\python_udemy'))
 # print(os.path.abspath('.'))
 print(os.path.basename(path))
-print(os.path.basename(directory))
+print(os.path.basename(directory)) 
 print(os.path.dirname(path)) 
+# print(file)
