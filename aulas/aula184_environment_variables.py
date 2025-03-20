@@ -15,3 +15,13 @@
 # load_dotenv()
 # OBS.: Always remember to create a .env-example
 
+# https://pypi.org/project/python-dotenv/
+
+# pastas: .env e .env-example
+
+from dotenv import load_dotenv #type: ignore
+import os
+
+load_dotenv()
+# print(os.environ)
+print(os.getenv("BD_PASSWORD"))
