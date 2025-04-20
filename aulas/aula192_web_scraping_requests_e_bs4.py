@@ -3,12 +3,13 @@
 # Requests is used to make HTTP requests, while BeautifulSoup is used to parse HTML and XML documents.
 
 import requests
+import re
 from bs4 import BeautifulSoup
 
-url = 'http://127.0.0.1:5500/aulas/aula190_site/index.html'
+url = 'http://127.0.0.1:5500/Python-Otavio-Miranda-UDEMY/aulas/aula190_site/index.html'
 response = requests.get(url)
 raw_html = response.text  # Get the raw HTML content of the page
-parsed_html = BeautifulSoup(raw_html, 'html.parser', from_encoding='utf-8')  # Parse the HTML content using BeautifulSoup
+parsed_html = BeautifulSoup(raw_html, 'html.parser')  # Parse the HTML content using BeautifulSoup
 # Now you can use BeautifulSoup methods to extract data from the parsed HTML
 
 
@@ -22,4 +23,4 @@ if top_jobs_heading is not None:  # Check if the element was found
     article = top_jobs_heading.parent  # Get the parent element of the heading
     if article is not None:  # Check if the parent element was found
         for p in article.select('p'):
-            print(p.text)
+            print(re.sub(r'\s{1,}', ' ', p.text).strip())  # Print the text of each paragraph in the article
